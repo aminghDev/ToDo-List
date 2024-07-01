@@ -1,0 +1,752 @@
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(imgs/office-supplies-with-keyboard-gray-desk.jpg);
+    background-size: cover;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "LXGW WenKai TC" ;
+    font-weight: 600;
+    font-style: normal;
+}
+
+li {
+list-style-type: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+input:focus , textarea:focus {
+    outline: none;
+}
+
+
+h1 {
+    font-size: 3rem;
+    color: rgb(198, 89, 0);
+    text-shadow: 4px 4px 6px rgb(168, 168, 168);
+    font-weight: 800;
+    font-family: sans-serif;
+}
+
+.container {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    
+}
+
+.header {
+    display: grid ;
+    grid-template-columns: 85px 240px 122px 110px 110px auto;
+    border-bottom: 1px solid rgb(67, 67, 67);
+}
+
+.header li {
+    padding: 10px 0;
+    font-size: 20px;
+    justify-self: center;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    height: 800px;
+    width: 100%;
+    overflow-y:auto;
+    padding-top: 10px;
+}
+
+.frame .frame-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.item {
+    position: relative;
+    background-color: rgb(255, 255, 196);
+    width: 95%;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 52px 62px 200px 110px 110px 100px auto;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 3px 3px 8px rgb(127, 127, 127);
+    padding: 0 10px ;
+    font-size: 1.2rem;
+}
+
+.frame .frame-items .item:last-child {
+    border-bottom: none;
+}
+
+.start , .deadline {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.7rem;
+    justify-self: center;
+}
+
+.month , .day {
+    width: 25px;
+    height: 30px;
+    background-color: white;
+    border-radius: 40%;
+    border: 0.3px solid rgb(163, 163, 163);
+    font-size: 1.2rem;
+    padding: 0 4px;
+}
+
+.number {
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+    justify-self: center;
+    z-index: 2;
+}
+
+.number-cont {
+    position: absolute;
+    height: 100%;
+    width: 65px;
+    border-top-left-radius: 50px ;
+    border-bottom-left-radius: 50px;
+    background-color: rgb(103, 103, 255);
+    left: 0;
+}  
+
+.title p {
+    text-align: center;
+}
+
+/*---------customise checkbox style----------*/
+
+.checkbox-cont {
+    position: relative;
+}
+
+.checkbox-cont input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-cont label {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    left: 6px;
+    top: -25px;
+    width: 55px;
+    height: 55px;
+    z-index: 3;
+}
+
+.checkbox-cont .checkmark {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    border: 2px solid rgb(200, 200, 200);
+    border-radius: 50%;
+    box-shadow: inset 4px 4px 10px rgb(60, 60, 60);
+}
+
+.checkbox-cont .marker {
+    position: absolute;
+    display: none;
+    left: 26px;
+    top: -10px;
+    width: 8px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+/*-------------------end------------------- */
+
+.frame .frame-items .description {
+    justify-self: center;
+}
+
+.frame .frame-items .description button {
+    color: rgb(65, 65, 65);
+    background-color: orange;
+    border-radius: 40px;
+    width: 70px;
+    padding: 6px;
+    font-size: 1.2rem;
+    box-shadow: 3px 3px 8px #8c8c8c;
+    transition: 0.2s;
+}
+
+.frame .frame-items .description button:hover {
+    transform: scale(1.1);
+}
+
+.frame .frame-items .edit {
+    display: flex;
+    gap: 10px;
+    justify-self: center;
+}
+
+.frame .frame-items .edit button {
+    padding: 6px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: 0.2s;
+}
+
+.frame .frame-items .edit button:hover {
+    transform: scale(1.2);
+}
+
+.edit button:first-child {
+    background-color: blue;
+}
+
+.edit button:last-child {
+    background-color: red;
+}
+
+.frame .frame-items .edit button img {
+    width: 25px;
+    height: 25px;
+}
+
+.add-item {
+    font-size: 1.8rem;
+    font-weight: 800;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    grid-template-rows: 80px;
+    gap: 5px;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(164, 164, 164, 0.1);
+    border: 1px solid rgb(158, 158, 158);
+    cursor: pointer;
+    transition: 0.2s;
+    margin-bottom: 10px; 
+}
+
+.add-item img {
+    width: 30px;
+    height: 28px;
+    padding-top: 8px;
+    opacity: 0.5;
+}
+
+.add-item:hover {
+    color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 2.2rem;
+}
+
+.add-item:hover img {
+    width: 34px;
+    height: 32px;
+    opacity: 0.7;
+}
+
+.start .date-format , .deadline .date-format { 
+    position: absolute;
+    width: 100%;
+    font-size: 1rem;
+    bottom: -16px;
+    left: 6px;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+}
+
+.descr-text {
+    display: none;
+}
+
+/*------------------modal new todo------------------ */
+
+.modal-new-todo {
+    position: absolute;
+    width: 600px;
+    height: 530px;
+    background-color: rgb(255, 255, 196);
+    border-radius: 20px;
+    z-index: 5;
+    padding: 20px;
+    display: none;
+}
+
+.title-cont {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.title-cont .charecters {
+    margin-left: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 5px;
+    color: #898989;
+}
+
+.title-cont #add-title {
+    font-size: 1.2rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 0.3px solid rgb(163, 163, 163);
+    box-shadow: #c9c9c9 3px 3px 8px;
+}
+
+.title-cont .warning-cont {
+    height: 22px;
+    padding-top: 5px;
+}
+
+.title-cont .warning {
+    margin-left: 20px;
+    color: rgb(231, 0, 0);
+    display: none;
+}
+
+.date-cont {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 10px;
+}
+
+.date-cont h2 {
+    position: absolute;
+    top: -22px;
+    border: 0.3px solid rgb(163, 163, 163);
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: inset -6px -6px 10px #cecece;
+}
+
+.date-cont button {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 7px;
+    background-color: rgb(70, 254, 208);
+    border-radius: 20px;
+    transition: 0.2s;
+    box-shadow: inset -6px -6px 10px rgb(144, 144, 144);
+}
+
+.date-cont button:hover {
+    background-color: rgb(0, 230, 173);
+}
+
+.date-cont .start-cont , .deadline-cont {
+    position: relative;
+    width: 130px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 35px 20px 20px 20px;
+    border: 0.3px solid rgb(163, 163, 163);
+    border-radius: 15px;
+}
+
+
+.date-cont .start-inputs , .deadline-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.slash{
+    font-size: 1.7rem;
+}
+
+.date-cont input {
+    width: 25px;
+    height: 30px;
+    background-color: white;
+    border-radius: 40%;
+    border: 0.3px solid rgb(163, 163, 163);
+    font-size: 1.2rem;
+    padding: 0 4px;
+}
+
+.description-cont {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.description-cont #add-description {
+    resize: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    padding: 10px;
+    border: 0.3px solid rgb(163, 163, 163);
+    box-shadow: #c9c9c9 3px 3px 8px;
+}
+
+.start-inputs .date-format , .deadline-inputs .date-format {
+    position: absolute;
+    width: 100%;
+    font-size: 1rem;
+    bottom: 2px;
+    left: 6px;
+    color: red;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.start-cont .warning-cont , .deadline-cont .warning-cont {
+    box-sizing: border-box;
+    position: absolute;
+    width: 155px;
+    height: 45px;
+    padding: 0 22px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+    bottom: -48px;
+    color: rgb(231, 0, 0);
+}
+
+.warning-input { 
+    display: none;
+}
+
+.modal-new-todo .btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.modal-new-todo .btns button {
+    font-size: 1.4rem;
+    padding: 7px 20px;
+    border-radius: 25px;
+    margin-top: 15px;
+    box-shadow: inset -6px -6px 10px rgb(119, 119, 119);
+    transition: 0.2s;
+}
+
+.btns button:hover {
+    transform: scale(1.2);
+}
+
+.btns .add , .apply {
+    background-color: rgb(2, 253, 2);
+    display: none;
+}
+
+.btns .cancel {
+    background-color: rgb(255, 64, 64);
+}
+
+/*-----------------calendar------------------*/
+
+.calendar-container {
+	width: 450px;
+	border-radius: 40px;
+    position: absolute;
+    z-index: 7;
+    background-color: rgb(255, 255, 196);
+    display: none;
+}
+
+.calendar-container header {
+	display: flex;
+	align-items: center;
+	padding: 25px 30px 10px;
+	justify-content: space-between;
+}
+
+header .calendar-navigation {
+	display: flex;
+}
+
+header .calendar-navigation span {
+	height: 40px;
+	width: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	padding: 5px;
+	line-height: 38px;
+	border-radius: 50%;
+	user-select: none;
+	color: black;
+	font-size: 3rem;
+}
+
+.calendar-navigation span:last-child {
+	margin-right: -10px;
+}
+
+header .calendar-navigation span:hover {
+	background: orange;
+}
+
+header .calendar-current-date {
+	font-size: 2rem;
+}
+
+.calendar-body {
+	padding: 20px;
+}
+
+.calendar-body ul {
+	list-style: none;
+	flex-wrap: wrap;
+	display: flex;
+	text-align: center;
+}
+
+.calendar-body .calendar-dates {
+	margin-bottom: 20px;
+}
+
+.calendar-body li {
+	width: calc(100% / 7);
+	font-size: 1.2rem;
+	color: #000;
+}
+
+.calendar-body .calendar-weekdays {
+	gap: 8px;
+}
+
+.calendar-body .calendar-weekdays li {
+	background-color: orange;
+	width: 35px;
+	padding: 8px;
+	border-radius: 50%;
+}
+
+.calendar-body .calendar-dates li {
+	margin-top: 30px;
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.calendar-dates li.inactive {
+	color: #aaa;
+    font-weight: 500;
+}
+
+.calendar-dates li.active {
+	color: #fff;
+}
+
+.calendar-dates li::before {
+	position: absolute;
+	content: "";
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	transition: 0.2s;
+}
+
+.calendar-dates li.active::before {
+	background-color: rgb(222, 144, 0);
+}
+
+.calendar-dates li:not(.active):hover::before {
+	background-color: orange;
+}
+
+
+/*-----------dark and blur background-----------*/
+
+.dark-bg-1 , .dark-bg-2  {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+.dark-bg-2 {
+    z-index: 6;
+}
+
+/*----------------------------------------------*/
+
+.modal-description {
+    position: absolute;
+    display: none;
+    z-index: 4;
+}
+
+.modal-description .description-cont {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 350px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 196);
+}
+
+.modal-description .description-cont .title-cont {
+    margin: 0;
+    height: 160px;
+}
+
+.modal-description .description-cont .title-cont h3 {
+    font-size: 2rem;
+}
+
+.modal-description .description-cont .title-cont p {
+    font-size: 1.4rem;
+}
+
+.modal-description  #description {
+    resize: none;
+    height: 250px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    padding: 10px;
+    border: 0.3px solid rgb(163, 163, 163);
+    box-shadow: #c9c9c9 3px 3px 8px;
+}
+
+.modal-description button {
+    margin-top: 10px;
+    font-size: 1.4rem;
+    padding: 7px 20px;
+    border-radius: 25px;
+    margin-top: 15px;
+    color: #fff;
+    background-color: rgb(255, 64, 64);
+    box-shadow: inset -6px -6px 10px rgb(119, 119, 119);
+    transition: 0.2s;
+}
+
+.description-alert {
+    position: absolute;
+    background-color: rgb(255, 255, 196);
+    font-size: 1.4rem;
+    padding: 30px 20px;
+    border-radius: 20px;
+    z-index: 4;
+    display: none;
+}
+
+.description-alert .alert-cont img {
+    width: 40px;
+    height: 40px;
+}
+
+.description-alert .alert-cont {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/*---------------classes to add in js-----------------*/
+
+.none-disp {
+    display: none !important; 
+}
+
+.block-disp {
+    display: block !important;
+}
+
+.red-outline {
+    outline: 3px solid rgb(255, 66, 66) !important ;
+}
+
+.checkbox-bg {
+    background-color: #0fdc00 !important;
+}
+
+/*-----------------animation-----------------*/
+
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+}
+
+@keyframes zoom-out {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+}
+
+
+.fade-in {
+    animation: fade-in 400ms forwards;
+}
+
+.fade-out {
+    animation: fade-out 400ms forwards;
+}
+
+.zoom-out-rem {
+    animation: zoom-out 200ms forwards;
+}
+
+.fade-in-checker {
+    animation: fade-in 250ms forwards;
+}
+
+

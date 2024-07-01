@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+		href=
+"https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+</head>
+<body>
+
+    <h1>TODO LIST</h1> 
+    
+    <div class="dark-bg-1"></div>
+    <div class="dark-bg-2"></div>
+
+    <div class="container">
+
+        <ul class="header">
+            <li>number</li>
+            <li>title</li>
+            <li>start</li>
+            <li>deadline</li>
+            <li>description</li>
+            <li>edit</li>
+        </ul>
+
+        <div class="frame">
+
+            <div class="frame-items"></div>
+
+            <div class="item add-item">
+                <img src="imgs/plus.png" alt=""> 
+                <p>add new todo</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal-new-todo">
+
+        <div class="title-cont">
+            <h2>title:</h2>
+            <div class="charecters">
+                <span>used charecters :</span>
+                <span class="used-char">0</span>
+                <span>/ 33</span>
+            </div>
+            <input type="text" id="add-title">
+            <div class="warning-cont">
+                <span class="warning">the title can't be more than 33 charecters!</span>
+            </div>
+        </div>
+
+        <div class="date-cont">
+
+            <div class="start-cont">
+                <h2>start date</h2>
+                <button class="start-today">today</button>
+                <button class="start-calendar">calendar</button>
+                <div class="start-inputs">
+                    <input type="text" class="day-input">
+                    <span class="slash">/</span>
+                    <input type="text" class="month-input">
+                    <div class="date-format">
+                        <span>day</span>
+                        <span>month</span>
+                    </div>
+                </div>
+                <div class="warning-cont">
+                    <span class="warning-input"></span>
+                </div>
+
+            </div>
+
+            <div class="deadline-cont">
+                <h2>deadline</h2>
+                <button class="deadline-today">today</button>
+                <button class="deadline-calendar">calendar</button>
+                <div class="deadline-inputs">
+                    <input type="text" class="day-input">
+                    <span class="slash">/</span>
+                    <input type="text" class="month-input">
+                    <div class="date-format">
+                        <span>day</span>
+                        <span>month</span>
+                    </div>
+                </div>
+                <div class="warning-cont">
+                    <span class="warning-input"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="description-cont">
+            <h2>description:</h2>
+            <textarea name="description" id="add-description"></textarea>
+        </div>
+
+        <div class="btns">
+            <button class="add">add</button>
+            <button class="apply">apply</button>
+            <button class="cancel">cancel</button>
+        </div>
+
+    </div>
+
+    <div class="calendar-container">
+		<header class="calendar-header">
+			<p class="calendar-current-date"></p>
+			<div class="calendar-navigation">
+				<span id="calendar-prev"
+					class="material-symbols-rounded">
+					chevron_left
+				</span>
+				<span id="calendar-next"
+					class="material-symbols-rounded">
+					chevron_right
+				</span>
+			</div>
+		</header>
+
+		<div class="calendar-body">
+			<ul class="calendar-weekdays">
+				<li>Sun</li>
+				<li>Mon</li>
+				<li>Tue</li>
+				<li>Wed</li>
+				<li>Thu</li>
+				<li>Fri</li>
+				<li>Sat</li>
+			</ul>
+			<ul class="calendar-dates"></ul>
+		</div>
+	</div>
+
+    <div class="modal-description">
+        <div class="description-cont">
+            <div class="title-cont">
+                <h3>title:</h3>
+                <p class="title-text"></p>
+            </div>
+            <textarea name="description-modal" id="description" readonly></textarea>
+            <button class="close">close</button>
+        </div>
+    </div>
+
+    <div class="description-alert">
+        <div class="alert-cont">
+            <img src="imgs/error.png" alt="error icon">
+            <p>this ToDo has no description!</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
